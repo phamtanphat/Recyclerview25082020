@@ -5,6 +5,10 @@ import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.os.Bundle;
+import android.os.Handler;
+import android.util.Log;
+import android.view.View;
+import android.widget.Button;
 import android.widget.Toast;
 
 import java.util.ArrayList;
@@ -15,12 +19,14 @@ public class MainActivity extends AppCompatActivity {
     RecyclerView mRcvMovie;
     MovieAdapter mMovieAdapter;
     List<Movie> mArrayMovie;
+    Button mBtn;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
         mRcvMovie = findViewById(R.id.recyclerview);
+        mBtn = findViewById(R.id.buttonDelete);
 
         // Khai bao data gia cho mang
         mArrayMovie = new ArrayList<>();
@@ -33,7 +39,22 @@ public class MainActivity extends AppCompatActivity {
         mMovieAdapter = new MovieAdapter(mArrayMovie);
 
         mRcvMovie.setLayoutManager(new GridLayoutManager(this,2));
+        mRcvMovie.setHasFixedSize(true);
         mRcvMovie.setAdapter(mMovieAdapter);
+
+        mBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (mArrayMovie.size() >0){
+                    mArrayMovie.remove(mArrayMovie.size() - 1);
+                    mMovieAdapter.notifyItemRemoved(mArrayMovie.size() - 1);
+                }
+                Toast.makeText(MainActivity.this, mArrayMovie.size() + "", Toast.LENGTH_SHORT).show();
+            }
+        });
+
+
+
     }
 
 }

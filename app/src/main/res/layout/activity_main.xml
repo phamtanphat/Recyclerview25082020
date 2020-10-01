@@ -5,10 +5,16 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#ECACAC"
+    android:background="#FF7043"
     tools:context=".MainActivity">
+   <Button
+       android:text="Delete"
+       android:id="@+id/buttonDelete"
+       android:layout_width="match_parent"
+       android:layout_height="wrap_content"/>
 
    <androidx.recyclerview.widget.RecyclerView
+       android:layout_below="@id/buttonDelete"
        tools:listitem="@layout/layout_item_movie"
        android:id="@+id/recyclerview"
        android:layout_width="match_parent"
