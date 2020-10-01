@@ -1,5 +1,9 @@
 package com.example.recyclerview25082020;
 
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
+
 public class Movie {
     private String name;
     private Integer image;
@@ -35,4 +39,10 @@ public class Movie {
     public void setQualify(String qualify) {
         this.qualify = qualify;
     }
+
+//    public static List<Movie> getDataMock(){
+//        return new ArrayList<>(Arrays.asList(
+//           new Movie("RÒM",R.drawable.phim_rom,"HD")
+//        ));
+//    }
 }
