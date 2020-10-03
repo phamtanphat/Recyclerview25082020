@@ -14,7 +14,7 @@ import android.widget.Toast;
 import java.util.ArrayList;
 import java.util.List;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends AppCompatActivity implements OnItemClick{
 
     RecyclerView mRcvMovie;
     MovieAdapter mMovieAdapter;
@@ -58,7 +58,6 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(int position) {
                 Toast.makeText(MainActivity.this, position + "", Toast.LENGTH_SHORT).show();
-
             }
         });
     }
