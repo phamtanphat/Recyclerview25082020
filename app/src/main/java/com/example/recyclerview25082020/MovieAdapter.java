@@ -14,6 +14,7 @@ import java.util.List;
 public class MovieAdapter extends RecyclerView.Adapter<MovieAdapter.MovieViewHolder> {
 
     List<Movie> mArrayMovie;
+    OnItemClick mOnItemClick;
 
     public MovieAdapter(List<Movie> mArrayMovie) {
         this.mArrayMovie = mArrayMovie;
@@ -49,6 +50,15 @@ public class MovieAdapter extends RecyclerView.Adapter<MovieAdapter.MovieViewHol
             imgMovie = itemView.findViewById(R.id.imageView);
             tvName = itemView.findViewById(R.id.textviewName);
             tvQualify = itemView.findViewById(R.id.textviewqualify);
+            itemView.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    mOnItemClick.onClick(getAdapterPosition());
+                }
+            });
         }
+    }
+    public void setOnClickItem(OnItemClick mOnItemClick){
+        this.mOnItemClick = mOnItemClick;
     }
 }

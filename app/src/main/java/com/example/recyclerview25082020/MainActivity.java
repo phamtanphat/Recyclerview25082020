@@ -54,7 +54,13 @@ public class MainActivity extends AppCompatActivity {
         });
 
 
+        mMovieAdapter.setOnClickItem(new OnItemClick() {
+            @Override
+            public void onClick(int position) {
+                Toast.makeText(MainActivity.this, position + "", Toast.LENGTH_SHORT).show();
 
+            }
+        });
     }
 
 }
